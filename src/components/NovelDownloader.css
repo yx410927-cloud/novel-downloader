@@ -1,0 +1,539 @@
+.app-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰 */
+.bg-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+.bg-circle-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.3);
+  top: -100px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.bg-circle-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 182, 193, 0.4);
+  bottom: -50px;
+  left: -50px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.bg-circle-3 {
+  width: 200px;
+  height: 200px;
+  background: rgba(173, 216, 230, 0.4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+  }
+}
+
+/* 主容器布局 */
+.main-wrapper {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header {
+  margin-bottom: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.stats-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 主内容区 */
+.content-area {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 搜索视图 */
+.search-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.search-input {
+  padding-left: 48px;
+}
+
+.search-btn {
+  flex-shrink: 0;
+}
+
+/* 搜索结果 */
+.search-results {
+  flex: 1;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* 书籍卡片 */
+.book-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.book-cover {
+  width: 90px;
+  height: 120px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  text-align: center;
+}
+
+.book-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-author {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.book-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.book-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.empty-state p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.empty-state span {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* 下载视图 */
+.download-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-detail {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.detail-header {
+  display: flex;
+  gap: 24px;
+}
+
+.detail-cover {
+  width: 140px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.detail-author {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.detail-abstract {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 章节区域 */
+.chapter-section {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.chapter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chapter-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chapter-count {
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.chapter-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* 下载进度 */
+.download-progress {
+  margin-bottom: 20px;
+}
+
+.progress-text {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 章节列表 */
+.chapter-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.chapter-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chapter-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.chapter-item.selected {
+  background: rgba(102, 126, 234, 0.3);
+  border: 1px solid rgba(102, 126, 234, 0.5);
+}
+
+.chapter-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chapter-item.selected .chapter-checkbox {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.chapter-name {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chapter-words {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.vip-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border-radius: 4px;
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+  
+  .sidebar-nav {
+    flex-direction: row;
+    flex: 1;
+  }
+  
+  .sidebar-footer {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .detail-info {
+    align-items: center;
+  }
+}

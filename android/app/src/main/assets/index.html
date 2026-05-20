@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>番茄小说 - 液态玻璃</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 动态背景 -->
+    <div class="gradient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区 -->
+        <header class="glass-header">
+            <h1 class="title">
+                <span class="icon">📚</span>
+                <span class="text">番茄小说</span>
+            </h1>
+            <p class="subtitle">液态玻璃风格阅读器</p>
+        </header>
+
+        <!-- 搜索区 -->
+        <div class="glass-card search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索小说、作者..." class="search-input">
+                <button id="searchBtn" class="search-btn">
+                    <span class="btn-icon">🔍</span>
+                </button>
+            </div>
+            <div class="quick-tags">
+                <span class="tag" data-keyword="玄幻">玄幻</span>
+                <span class="tag" data-keyword="都市">都市</span>
+                <span class="tag" data-keyword="修仙">修仙</span>
+                <span class="tag" data-keyword="历史">历史</span>
+            </div>
+        </div>
+
+        <!-- 加载动画 -->
+        <div id="loading" class="glass-loading hidden">
+            <div class="liquid-loader">
+                <div class="drop"></div>
+                <div class="drop"></div>
+                <div class="drop"></div>
+            </div>
+            <p class="loading-text">正在搜索...</p>
+        </div>
+
+        <!-- 搜索结果 -->
+        <div id="results" class="results-section"></div>
+
+        <!-- 书籍详情 -->
+        <div id="bookDetail" class="glass-modal hidden">
+            <div class="modal-content glass-card">
+                <button class="close-btn" id="closeDetail">×</button>
+                <div id="detailContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 消息提示 -->
+    <div id="toast" class="glass-toast hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

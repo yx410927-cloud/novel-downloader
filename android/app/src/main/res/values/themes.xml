@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.TomatoNovel" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+    </style>
+    
+    <!-- Splash Screen theme -->
+    <style name="Theme.SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+    </style>
+    
+    <!-- Full screen theme for reader -->
+    <style name="Theme.TomatoNovel.FullScreen" parent="Theme.TomatoNovel">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

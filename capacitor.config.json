@@ -1,0 +1,14 @@
+{
+  "appId": "com.novel.downloader",
+  "appName": "小说下载器",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "StatusBar": {
+      "style": "LIGHT",
+      "backgroundColor": "#667eea"
+    }
+  }
+}
